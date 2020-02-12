@@ -37,13 +37,35 @@ let menuItems = [
 function createMenu(arr){
   let ul = document.createElement('ul');
   let menu = document.createElement('div');
-  menu.classList
-  arr.forEach(elem => ul.append.document.createElement('li').textContent = elem);
+  menu.classList.add('menu');
+  
+ let listItem = arr.map(elem => document.createElement('li'));
+//  console.log(listItem)
+
+listItem.forEach((elem, i) => elem.textContent = arr[i]) ;
+ 
+listItem.forEach(elem => ul.append(elem));
+// console.log(ul);
+menu.appendChild(ul);
+// console.log(menu);
+
+
+let menuButton = document.querySelector('.menu-button');
+menuButton.addEventListener('click', (e) => {
+  // console.log(e.target);
+  menu.classList.toggle('menu--open');
+});
+
+ return menu;
+ 
+};
+
+document.querySelector('body').appendChild(createMenu(menuItems));
 
 
 
-}
-console.log(createMenu(menuItems));
+
+
   
   
   
