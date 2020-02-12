@@ -138,6 +138,7 @@ function createPanel (obj){
   const p2 = document.createElement('p');
   const p3 = document.createElement('p');
   const span = document.createElement('span');
+  
 
   article.appendChild(title);
   article.appendChild(date);
@@ -145,10 +146,12 @@ function createPanel (obj){
   article.appendChild(p2);
   article.appendChild(p3);
   article.appendChild(span);
+ 
 
   article.classList.add('article');
   date.classList.add('date');
   span.classList.add('expandButton');
+  
 
   title.textContent = obj.title;
   date.textContent = obj.date;
