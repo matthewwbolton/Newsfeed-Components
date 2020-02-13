@@ -138,6 +138,7 @@ function createPanel (obj){
   const p2 = document.createElement('p');
   const p3 = document.createElement('p');
   const span = document.createElement('span');
+  const closeBtn = document.createElement('span');
   
 
   article.appendChild(title);
@@ -146,11 +147,13 @@ function createPanel (obj){
   article.appendChild(p2);
   article.appendChild(p3);
   article.appendChild(span);
+  article.appendChild(closeBtn);
  
 
   article.classList.add('article');
   date.classList.add('date');
   span.classList.add('expandButton');
+  closeBtn.classList.add('expandButton1');
   
 
   title.textContent = obj.title;
@@ -158,10 +161,14 @@ function createPanel (obj){
   p1.textContent = obj.firstParagraph;
   p2.textContent = obj.secondParagraph;
   p3.textContent = obj.thirdParagraph;
-  span.textContent = '\u25BC';
+  span.textContent = '\u25BC Click to Expand';
+  closeBtn.textContent = '\u25B3 Click to Collapse';
 
   span.addEventListener('click', () => {
     article.classList.toggle('article-open')
+  });
+  closeBtn.addEventListener('click', () => {
+    article.classList.toggle('article-open');
   });
 
   return article;
@@ -173,3 +180,11 @@ const articles = document.querySelector('.articles');
 data.map(elem => {
   articles.appendChild(createPanel(elem))
 });
+
+// constcloseBtn = document.createElement('span');
+// article.appendChild(closeBtn);
+// closeBtn.classList.add('span');
+// closeBtn.textContent = '\u25B3';
+// closeBtn.addEventListener('clicl', () => {
+//   article.classList.toggle('article-open');
+// })
