@@ -153,7 +153,7 @@ function createPanel (obj){
   article.classList.add('article');
   date.classList.add('date');
   span.classList.add('expandButton');
-  closeBtn.classList.add('expandButton1');
+  closeBtn.classList.add('expandButton1', 'article-close');
   
 
   title.textContent = obj.title;
@@ -164,11 +164,18 @@ function createPanel (obj){
   span.textContent = '\u25BC Click to Expand';
   closeBtn.textContent = '\u25B3 Click to Collapse';
 
-  span.addEventListener('click', () => {
+  span.addEventListener('click', (e) => {
+    e.stopPropagation()
     article.classList.toggle('article-open')
+    span.classList.toggle('article-close')
+    closeBtn.classList.toggle('article-close')
+    
   });
   closeBtn.addEventListener('click', () => {
     article.classList.toggle('article-open');
+    closeBtn.classList.toggle('article-close')
+    span.classList.toggle('article-close')
+
   });
 
   return article;
